@@ -16,4 +16,8 @@ class Luggages extends Model
         'bag_weight',
         'pid'
     ];
+
+    public function passangers(){
+        return $this->belongsToMany('App\Models\Passangers');
+    }
 }

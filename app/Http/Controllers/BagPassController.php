@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Flights;
-use App\Models\Luggages;
 use Illuminate\Http\Request;
+use App\Models\Bag_status;
+use App\Models\Luggages;
 
-class JoinTableController extends Controller
+class BagPassController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,17 +16,11 @@ class JoinTableController extends Controller
     public function index()
     {
         $data = Luggages::join('passangers', 'passangers.pid','=','luggages.pid')
-                        ->join('bag_statuses', 'bag_statuses.bag_tagID', '=','lugguges.cardID')
+                        ->join('bag_statuses', 'bag_statuses.bag_tagID', '=','luggages.cardID')
                         ->get([
-                            'passanger.pid','passanger.name','luggages.cardID','bag_statuses.Terminal_at'
+                            'passangers.pid','passangers.status','passangers.name','luggages.cardID','bag_statuses.Terminal_at'
                         ]);
-
-        $data = Flights::join('luggages', 'luggages.pid','=','passangers.pid')
-                        ->join('flights', 'flights.fligh_no', '=','passangers.flight_no')
-                        ->get([
-                            'passangers.pid','passangers.name','luggages.cardID','flight.flight_status'
-                        ]);
-                        
+        return view('bagstatus.bagpassStatus',['data'=>$data]);
     }
 
     /**

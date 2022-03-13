@@ -17,4 +17,9 @@ class Flights extends Model
         'flight_status',
         'no_bags',
     ];
+
+
+    public function passangers(){
+        return $this->belongsToMany('App\Models\Passangers');
+    }
 }

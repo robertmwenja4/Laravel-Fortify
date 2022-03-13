@@ -19,4 +19,8 @@ class Passangers extends Model
         'pid', 'name', 'fligh_no','email','phone_number','flight_class',
         'flight_origin', 'destination','status',
     ];
+
+    public function flights(){
+        return $this->belongsToMany('App\Models\flights');
+    }
 }

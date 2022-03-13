@@ -54,7 +54,7 @@
                             <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">View Passangers</a>
                               <a class="dropdown-item" href="{{ route('admin.passanger.create') }}">Add New Passanger</a>
-                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Final Checkin</a>
+                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Plane Boarding Checkin</a>
                             </div>
                           </div>
                         @endcan
@@ -69,6 +69,7 @@
                             <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
                               <a class="dropdown-item" href="{{ route('admin.flights.index') }}">View Flights</a>
                               <a class="dropdown-item" href="{{ route('admin.flights.create') }}">Add New Flight</a>
+                              <a class="dropdown-item" href="{{ route('admin.expected.index') }}">Flight Status</a>
                             </div>
                           </div>
                         @endcan
@@ -89,6 +90,18 @@
                         @endcan
                         
                     </li>
+                    <li>
+                        @can('is-all')
+                        <div class="dropdown">
+                            <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                              Passanger & Bags
+                            </button>
+                            <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
+                              <a class="dropdown-item" href="{{ route('admin.passbagstatus.index') }}">View Passanger & Bags</a>
+                            </div>
+                          </div>
+                        @endcan
+                    </li>
                     
                 </ul>
             </div>
@@ -99,7 +112,7 @@
                     <label for="nav-toggle">
                         <span class="las la-bars"></span>
                     </label>
-                    <span class="navbar-brand">{{ "Luggage Tracking System" }}</span>
+                    <span class="navbar-brand">{{ "TRIPPLE A" }}</span>
                     {{-- <a class="navbar-brand" href="#">{{ "Luggage Tracking System" }}</a> --}}
                     <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -109,7 +122,7 @@
                     @if (Route::has('login'))
                         <div>
                             @auth
-                                <a href="{{ url('/home') }}"><span>Profile</span></a>
+                                <a href="{{ route('user.profile') }}"><span>Profile</span></a>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
                                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none">

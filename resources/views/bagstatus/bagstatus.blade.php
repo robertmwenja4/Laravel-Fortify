@@ -31,7 +31,7 @@
             <td>{{ $bag->cardID }}</td>
             <td>{{ $bag->Terminal_at }}</td>
             <td>
-                @if($bag->Terminal_at =='Bag Passed Checkin 2')
+                @if($bag->Terminal_at =='CheckIn 2')
                 <a class="btn btn-sm btn-primary" href="#" role="button" >Loaded</a>
                 @else
                 <a class="btn btn-sm btn-danger" href="#" role="button" >Missing</a>

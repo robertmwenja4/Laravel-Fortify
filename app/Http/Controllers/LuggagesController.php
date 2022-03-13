@@ -117,7 +117,8 @@ class LuggagesController extends Controller
         $user = DB::table('luggages')->where('cardID', $cardID)->first();
         if($user != null){
             //Also if user exists return moble number
-            return "success";
+            $pass = DB::table('passangers')->where('pid', $user->pid)->first();
+            return $pass->phone_number;
         }elseif($user == null){
 
             
