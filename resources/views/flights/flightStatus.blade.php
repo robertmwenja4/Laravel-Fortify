@@ -11,29 +11,28 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#Id</th>
+            <th scope="col">Pass ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">Terminal</th>
             <th scope="col">Flight Number</th>
-            <th scope="col">Origin</th>
-            <th scope="col">Destination</th>
-            <th scope="col">Flight Status</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
-        @foreach ($data as $flight)
+        @foreach ($data1 as $flight)
         <tr>
-            <th scope="row">{{ $flight->id }}</th>
-            <td>{{ $flight->flight_no }}</td>
-            <td>{{ $flight->origin }}</td>
-            <td>{{ $flight->destination }}</td>
-            <td>{{ $flight->flight_status }}</td>
+            <td>{{ $flight->pid }}</td>
+            <td>{{ $flight->name }}</td>
+            <td>{{ $flight->Terminal_at }}</td>
+            <td>{{ $flight->fligh_no }}</td>
             <td>
-                @if($flight->no_bags > $num)
-                {{ dd($dd) }}
-                <a class="btn btn-sm btn-danger" href="#" role="button" >Hold On</a>
+              
+                {{-- @if($flight->no_bags > $num)
+                dd({{ $flight->no_bags }});
+                <a class="btn btn-sm btn-danger" href="#" role="button" >Hold On{{ dd($dd) }}</a>
                 @else
                 <a class="btn btn-sm btn-primary" href="#" role="button" >{{ $flight->no_bags }}</a>
-                @endif
+                @endif --}}
             </td>
           </tr>
         @endforeach
