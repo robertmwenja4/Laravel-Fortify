@@ -85,7 +85,13 @@ class PassangersController extends Controller
             $request->session()->flash('error', 'Passanger does not exist!!');
             return redirect(route('admin.passanger.index')); 
         }
-
+        $flight = DB::table('flights')->where('flight_no', $passanger->fligh_no)->first();
+        //dd($flight->flight_status);
+        if($flight->flight_status == 'delayed'){
+            $passanger->update($request->except(['_token','status']));
+            $request->session()->flash('success', 'Passanger Not Updated Successfully!!');
+            return redirect(route('admin.passanger.index')); 
+        }
         $passanger->update($request->except(['_token']));
         $request->session()->flash('success', 'Passanger Updated Successfully!!');
         return redirect(route('admin.passanger.index'));

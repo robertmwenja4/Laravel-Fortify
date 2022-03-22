@@ -3,8 +3,11 @@
 @section('content')
 <div class="row">
     <div class="col-12">
-        <h1 class="float-left">Passangers</h1>
-        <a class="btn btn-sm btn-success float-right" style="float: right" href="{{ route('admin.passanger.create') }}" role="button" >Create New Passanger</a>
+        <h1 class="float-left">Passengers</h1>
+        @cannot('is-boardonly')
+        <a class="btn btn-sm btn-success float-right" style="float: right" href="{{ route('admin.passanger.create') }}" role="button" >Create New Passenger</a>
+        @endcannot
+        
     </div>
 </div>
 <div class="card">
@@ -37,7 +40,8 @@
             <td>{{ $passanger->destination }}</td>
             <td>
                 <a class="btn btn-sm btn-primary" href="{{ route('admin.passanger.edit', $passanger->id) }}" role="button" >Edit</a>
-                <button type="button" class="btn btn-sm btn-danger"
+                @cannot('is-boardonly')
+                    <button type="button" class="btn btn-sm btn-danger"
                     onclick="event.preventDefault(); document.getElementById('delete-form-{{ $passanger->id }}').submit();">
                     Delete
                 </button>
@@ -45,6 +49,8 @@
                     @csrf
                     @method("DELETE")
                 </form>
+                @endcannot
+                
             </td>
           </tr>
         @endforeach

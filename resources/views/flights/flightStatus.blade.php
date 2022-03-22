@@ -27,12 +27,12 @@
             <td>{{ $flight->fligh_no }}</td>
             <td>
               
-                {{-- @if($flight->no_bags > $num)
+                @if($flight->no_bags > $num)
                 dd({{ $flight->no_bags }});
                 <a class="btn btn-sm btn-danger" href="#" role="button" >Hold On{{ dd($dd) }}</a>
                 @else
                 <a class="btn btn-sm btn-primary" href="#" role="button" >{{ $flight->no_bags }}</a>
-                @endif --}}
+                @endif
             </td>
           </tr>
         @endforeach

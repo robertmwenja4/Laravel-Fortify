@@ -6,6 +6,7 @@ use App\Models\Bag_status;
 use App\Models\Flights;
 use Illuminate\Http\Request;
 use App\Models\Luggages;
+use App\Models\Passangers;
 use Illuminate\Support\Facades\DB;
 
 class ExpectedBagsController extends Controller
@@ -31,6 +32,8 @@ class ExpectedBagsController extends Controller
         $AllBags = Bag_status::all();
         $num = count($data);
         
+        //Flights::where('flight_no', '')->withCount('articles')->get();
+        
         $flights = Flights::all();
         foreach($data1 as $d){
             if($d->Terminal_at == 'CheckIn 2'){
@@ -47,7 +50,22 @@ class ExpectedBagsController extends Controller
      */
     public function create()
     {
-        //
+        $bags = Luggages::all();
+        foreach($bags as $bag){
+            $bag->pid;
+            $passangers = Passangers::find($bag->pid);
+            foreach($passangers as $passanger){
+                $passanger->fligh_no;
+                $dupe_array = array();
+                foreach ($passanger->fligh_no as $val) {
+                    if (++$dupe_array[$val] > 1) {
+                        dd(count($val));
+                        return true;
+                    }
+                }
+                return false;
+            }
+        }
     }
 
     /**

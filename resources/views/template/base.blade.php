@@ -49,12 +49,15 @@
                         @can('is-all')
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Passangers
+                              Passengers
                             </button>
                             <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">View Passangers</a>
-                              <a class="dropdown-item" href="{{ route('admin.passanger.create') }}">Add New Passanger</a>
+                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">View Passengers</a>
+                              <a class="dropdown-item" href="{{ route('admin.passanger.create') }}">Add New Passenger</a>
+                              @cannot('is-check')
                               <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Plane Boarding Checkin</a>
+                              @endcannot
+                              
                             </div>
                           </div>
                         @endcan
@@ -79,12 +82,15 @@
                         @can('is-admin_Checkin_Agent')
                         <div class="dropdown">
                             <button class="btn dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              Luggages
+                              Baggages
                             </button>
                             <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
-                              <a class="dropdown-item" href="{{ route('luggages.index') }}">View Luggages</a>
-                              <a class="dropdown-item" href="{{ route('luggages.create') }}">Add New Luggage</a>
+                              <a class="dropdown-item" href="{{ route('luggages.index') }}">View Baggages</a>
+                              <a class="dropdown-item" href="{{ route('luggages.create') }}">Add New Baggage</a>
+                              @cannot('is-check')
                               <a class="dropdown-item" href="{{ route('admin.status.index') }}">Bag Status</a>
+                              @endcannot
+                              
                             </div>
                           </div>
                         @endcan

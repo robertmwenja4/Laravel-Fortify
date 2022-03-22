@@ -20,4 +20,8 @@ class Luggages extends Model
     public function passangers(){
         return $this->belongsToMany('App\Models\Passangers');
     }
+
+    public function flights(){
+        return $this->hasManyThrough(Flights::class, Passangers::class);
+    }
 }

@@ -4,7 +4,7 @@
     <div class="row">
       <div class="col-12">
           <h1 class="float-left">View Bags</h1>
-          <a class="btn btn-sm btn-success float-right" style="float: right" href="{{ route('luggages.create') }}" role="button" >Add New Flight</a>
+          <a class="btn btn-sm btn-success float-right" style="float: right" href="{{ route('luggages.create') }}" role="button" >Add New Bag</a>
       </div>
   </div>
   <div class="card">

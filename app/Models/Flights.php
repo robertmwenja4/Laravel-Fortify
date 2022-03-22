@@ -20,6 +20,6 @@ class Flights extends Model
 
 
     public function passangers(){
-        return $this->belongsToMany('App\Models\Passangers');
+        return $this->hasMany('App\Models\Passangers');
     }
 }
