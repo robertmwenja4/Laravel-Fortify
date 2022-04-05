@@ -144,4 +144,9 @@ class LuggagesController extends Controller
         
         
     }
+    public function lookfor(){
+        $tag = $_GET['bagSearch'];
+        $luggage = Luggages::where('cardID','LIKE', '%'.$tag.'%')->get();
+        return view('luggages.searchBag',['bags'=>$luggage]);
+    }
 }

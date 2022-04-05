@@ -99,4 +99,10 @@ class FlightsController extends Controller
         $request->session()->flash('success', 'Flight Deleted Successfully!!');
         return redirect(route('admin.flights.index'));
     }
+
+    public function search(){
+        $flight_no = $_GET['flightSearch'];
+        $flight = Flights::where('flight_no','LIKE', '%'.$flight_no.'%')->get();
+        return view('flights.searchflight',['flights'=>$flight]);
+    }
 }

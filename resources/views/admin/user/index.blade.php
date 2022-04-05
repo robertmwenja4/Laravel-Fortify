@@ -9,7 +9,7 @@
     </div>
     <div>
         <form class="form-inline" style="margin-bottom: 1rem" type="get" action="{{ url('searchUser') }}">
-          <input class="form-control mr-sm-2" name="searchname" type="search" placeholder="Search" aria-label="Search">
+          <input class="form-control mr-sm-2" name="searchname" type="search" placeholder="Search Users Name" aria-label="Search">
           <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
         </form>
       </div>

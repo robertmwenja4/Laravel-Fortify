@@ -36,6 +36,8 @@ Route::get('/product/search/', [LuggagesController::class, 'search'])->name('lug
 
 Route::get('/searchUser', [UserController::class, 'search']);
 Route::get('/searchPassanger', [PassangersController::class, 'search']);
+Route::get('/searchflight', [FlightsController::class, 'search']);
+Route::get('/searchBag', [LuggagesController::class, 'lookfor']);
 
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::resource('/passanger', PassangersController::class);
