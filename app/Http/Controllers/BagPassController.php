@@ -19,7 +19,7 @@ class BagPassController extends Controller
                         ->join('bag_statuses', 'bag_statuses.bag_tagID', '=','luggages.cardID')
                         ->get([
                             'passangers.pid','passangers.status','passangers.name','luggages.cardID','bag_statuses.Terminal_at'
-                        ]);
+                        ])->unique();
         return view('bagstatus.bagpassStatus',['data'=>$data]);
     }
 

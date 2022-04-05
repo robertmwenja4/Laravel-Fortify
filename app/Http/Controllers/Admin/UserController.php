@@ -116,4 +116,10 @@ class UserController extends Controller
         $request->session()->flash('success', 'User Deleted Successfully!!');
         return redirect(route('admin.users.index'));
     }
+
+    public function search(){
+        $username = $_GET['searchname'];
+        $users = User::where('name','LIKE', '%'.$username.'%')->get();
+        return view('admin.user.searchUser',['user'=>$users]);
+    }
 }

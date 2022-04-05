@@ -108,5 +108,11 @@ class PassangersController extends Controller
         $request->session()->flash('success', 'Passanger Deleted Successfully!!');
         return redirect(route('admin.passanger.index'));
     }
+
+    public function search(){
+        $pid = $_GET['passSearch'];
+        $passanger = Passangers::where('pid','LIKE', '%'.$pid.'%')->get();
+        return view('passanger.searchpassanger',['passangers'=>$passanger]);
+    }
     
 }

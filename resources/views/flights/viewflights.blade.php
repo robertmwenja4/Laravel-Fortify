@@ -7,6 +7,12 @@
         <a class="btn btn-sm btn-success float-right" style="float: right" href="{{ route('admin.flights.create') }}" role="button" >Add New Flight</a>
     </div>
 </div>
+<div>
+  <form class="form-inline" style="margin-bottom: 1rem" type="get" action="{{ url('/searchPassanger') }}">
+    <input class="form-control mr-sm-2" name="passSearch" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
 <div class="card">
     <table class="table">
         <thead>

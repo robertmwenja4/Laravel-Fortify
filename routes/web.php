@@ -34,6 +34,9 @@ Route::prefix('user')->middleware(['auth'])->name('user.')->group(function (){
 Route::resource('/luggages', LuggagesController::class);
 Route::get('/product/search/', [LuggagesController::class, 'search'])->name('luggage.search');
 
+Route::get('/searchUser', [UserController::class, 'search']);
+Route::get('/searchPassanger', [PassangersController::class, 'search']);
+
 Route::prefix('admin')->middleware('auth')->name('admin.')->group(function () {
     Route::resource('/passanger', PassangersController::class);
     Route::put('/passanger/{id}', [PassangersController::class, 'update1'])->name('passanger.update1');

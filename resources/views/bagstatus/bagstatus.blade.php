@@ -5,10 +5,12 @@
     <div class="col-12">
         <h1 class="float-left">View Bags</h1>
     </div>
-    <div class="form-inline my-2 my-lg-0">
-          <span class="las la-search"></span>
-          <input type="search" placeholder="Search here"/>
-      </div>
+</div>
+<div>
+  <form class="form-inline" style="margin-bottom: 1rem">
+    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
 </div>
 <div class="card">
     <table class="table">
