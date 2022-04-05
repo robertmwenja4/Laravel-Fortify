@@ -17,6 +17,8 @@ class Luggages extends Model
         'pid'
     ];
 
+    protected $primaryKey = 'cardID';
+
     public function passangers(){
         return $this->belongsToMany('App\Models\Passangers');
     }

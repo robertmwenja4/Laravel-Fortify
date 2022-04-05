@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreBagDetails;
 use App\Models\BagID;
+use App\Models\ExpectedBags;
 use App\Models\Luggages;
 use Illuminate\Http\Request;
 use Illuminate\Http\Response;
@@ -51,6 +52,16 @@ class LuggagesController extends Controller
         $validatedpass = $request->validated();
         $luggages = Luggages::create($validatedpass);
         $request->session()->flash('success', 'Bag Added Successfully!!');
+        $pid = DB::table('passangers')->where('pid', $request->pid)->first();
+        $newBag = new ExpectedBags();
+        $newBag->pid = $request->pid;
+        $newBag->tag_no = $request->cardID;
+        $newBag->flight_no = $pid->fligh_no;
+        $checkBag = DB::table('expected_bags')->where('pid', $request->pid)->first();
+        if($checkBag){
+            return "Expected bag Exists";
+        }
+        $newBag->save();
         return redirect(route('luggages.create'));
     }
 

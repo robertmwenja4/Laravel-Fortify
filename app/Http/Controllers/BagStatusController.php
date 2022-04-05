@@ -2,9 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreFlightStatus;
 use App\Models\Bag_status;
+use App\Models\FlightStatus;
 use App\Models\Luggages;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
+use Symfony\Component\Console\Input\Input;
 
 class BagStatusController extends Controller
 {
@@ -47,7 +51,35 @@ class BagStatusController extends Controller
             'bag_tagID'=>'required',
             'Terminal_at'=> 'required',
         ]);
+        if($request->Terminal_at == 'CheckIn 2'){
+            //Get PID in Luggage table
+            $getPID = DB::table('luggages')->where('cardID', $request->bag_tagID)->first();
+            $getflightNo = DB::table('passangers')->where('pid', $getPID->pid)->first();
+            //Get Flight number in Passengers table
+            $dbData = new FlightStatus();
+            $dbData->bag_tagID = $request->bag_tagID;
+            $dbData->Terminal_at = $request->Terminal_at;
+            $dbData->pid = $getPID->pid;
+            $dbData->flight_no = $getflightNo->fligh_no;
+            $checkBag = DB::table('flight_statuses')->where('pid', $getPID->pid)->first();
+            if($checkBag){
+                return "Exists";
+            }
+            $dbData->save();
+        }
+        $tag = DB::table('bag_statuses')->where('bag_tagID', $request->bag_tagID)->latest()->first();
+        if($tag != null){
+            if($request->Terminal_at == $tag->Terminal_at){
+                return "Same Terminal";
+            }
+            if($tag->Terminal_at != 'CheckIn 2' || $tag->Terminal_at != 'CheckIn 1'){
+                return Bag_status::create($request->all());
+           }
+           return $tag->bag_tagID;
+        }
         return Bag_status::create($request->all());
+        
+        
     }
 
     /**

@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Bag_status;
+use App\Models\ExpectedBags;
 use App\Models\Flights;
+use App\Models\FlightStatus;
 use Illuminate\Http\Request;
 use App\Models\Luggages;
 use App\Models\Passangers;
@@ -28,6 +30,15 @@ class ExpectedBagsController extends Controller
                         ->get([
                             'passangers.pid','passangers.name','luggages.cardID','bag_statuses.Terminal_at','passangers.fligh_no'
                         ]);
+    
+        $total = FlightStatus::groupBy('flight_no')
+                        ->selectRaw('count(*) as count, flight_no')
+                        ->pluck('count', 'flight_no');
+        $expectedbags = ExpectedBags::groupBy('flight_no')
+                        ->selectRaw('count(*) as count, flight_no')
+                        ->pluck('count', 'flight_no');
+        //dd($expectedbags);
+
         
         $AllBags = Bag_status::all();
         $num = count($data);
@@ -37,10 +48,10 @@ class ExpectedBagsController extends Controller
         $flights = Flights::all();
         foreach($data1 as $d){
             if($d->Terminal_at == 'CheckIn 2'){
-                return view('flights.flightStatus',['data'=>$flights, 'num'=>$num, 'dd'=>$num,'data1'=>$data1]);
+                return view('flights.flightStatus',['data'=>$flights, 'num'=>$num, 'dd'=>$num,'data1'=>$data1,'total'=>$total->toArray(),'expectedBags'=>$expectedbags->toArray()]);
             }
         }
-        return view('flights.flightStatus',['data'=>$flights, 'num'=>$num, 'dd'=>$num]);
+        return view('flights.flightStatus',['data'=>$flights, 'num'=>$num, 'dd'=>$num,'total'=>$total->toArray(),'expectedBags'=>$expectedbags->toArray()]);
     }
 
     /**
