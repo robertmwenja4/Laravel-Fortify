@@ -56,7 +56,12 @@ class LuggagesController extends Controller
         $newBag = new ExpectedBags();
         $newBag->pid = $request->pid;
         $newBag->tag_no = $request->cardID;
+        if(!$pid->fligh_no){ 
+            $request->session()->flash('error', 'Passenger does not Exits');
+            return "Passenger does not Exits";
+        }
         $newBag->flight_no = $pid->fligh_no;
+        
         $checkBag = DB::table('expected_bags')->where('pid', $request->pid)->first();
         if($checkBag){
             return "Expected bag Exists";
@@ -86,7 +91,7 @@ class LuggagesController extends Controller
     {
         return view('luggages.edit',
         [
-            'luggage' => luggages::find($id)
+            'luggage' => Luggages::find($id)
         ]);
     }
 
