@@ -16,22 +16,22 @@
     <table class="table">
         <thead>
           <tr>
-            <th scope="col">#Id</th>
             <th scope="col">Passanger ID</th>
             <th scope="col">Name</th>
             <th scope="col">Bag ID</th>
             <th scope="col">Terminal</th>
+            <th scope="col">Check Time</th>
             <th scope="col">Status</th>
           </tr>
         </thead>
         <tbody>
         @foreach ($data as $bag)
         <tr>
-            <th scope="row">{{ $bag->id }}</th>
             <td>{{ $bag->pid }}</td>
             <td>{{ $bag->name }}</td>
             <td>{{ $bag->cardID }}</td>
             <td>{{ $bag->Terminal_at }}</td>
+            <td>{{ $bag->created_at }}</td>
             <td>
                 @if($bag->Terminal_at =='CheckIn 2')
                 <a class="btn btn-sm btn-primary" href="#" role="button" >Loaded</a>
