@@ -22,7 +22,7 @@ class BagStatusController extends Controller
         $data = Luggages::join('passangers', 'passangers.pid','=','luggages.pid')
                         ->join('bag_statuses', 'bag_statuses.bag_tagID', '=','luggages.cardID')
                         ->get([
-                            'passangers.pid','passangers.name','luggages.cardID','bag_statuses.Terminal_at'
+                            'passangers.pid','passangers.name','luggages.cardID','bag_statuses.Terminal_at','bag_statuses.created_at'
                         ]);
         $AllBags = Bag_status::all();
         return view('bagstatus.bagstatus',['data'=>$data]);
