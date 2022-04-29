@@ -53,9 +53,15 @@ class BagStatusController extends Controller
         ]);
         $findID = DB::table('bag_statuses')->where('bag_tagID',$request->bag_tagID)->first();
         if($findID){
+            if($findID->Terminal_at == 'CheckIn 2'){
+                return "Bag Already at Final Checkin";
+            }
             if($request->Terminal_at == 'CheckIn 2'){
                 //Get PID in Luggage table
                 $getPID = DB::table('luggages')->where('cardID', $request->bag_tagID)->first();
+                if(!$getPID){
+                    return "Bag Not Linked to Passanger";
+                }
                 $getflightNo = DB::table('passangers')->where('pid', $getPID->pid)->first();
                 //Get Flight number in Passengers table
                 $dbData = new FlightStatus();
