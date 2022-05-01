@@ -67,3 +67,9 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     # Requirements
     - Install Composer and Laravel
     - Install php and Xammp
+    - Download Ngrok
+    - Download NPM
+    # NB For ease of use make the to be accessed Globally on the PC.
+    Achieved by adding the corresponding path to the ENVIRONMENT VARIABLE
+    # Installation Process
+    
