@@ -64,12 +64,12 @@ If you discover a security vulnerability within Laravel, please send an e-mail t
 The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
 # Laravel-Fortify
 # Steps to Install the Project
-    # Requirements
+  # Requirements
     - Install Composer and Laravel
     - Install php and Xammp
     - Download Ngrok
     - Download NPM
-    # NB For ease of use make the to be accessed Globally on the PC.
+   # NB For ease of use make the to be accessed Globally on the PC.
     Achieved by adding the corresponding path to the ENVIRONMENT VARIABLE
-    # Installation Process
-    
+   # Installation Process
+    git clone 
