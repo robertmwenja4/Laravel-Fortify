@@ -69,8 +69,14 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
     - Install php and Xammp
     - Download Ngrok
     - Download NPM
+    - Download and install vscode.
    # NB For ease of use make the to be accessed Globally on the PC.
     Achieved by adding the corresponding path to the ENVIRONMENT VARIABLE
    # Installation Process
    - Go to cmd and type git clone https://github.com/robertmwenja4/Laravel-Fortify.git
    - Next cd Laravel-Fortify then run "composer install"
+   # To run the Application
+   - Start the Xammp application.
+   - start the Command prompt and navigate to where the project is.
+   - Run code . 
+   - It opens the vscode editor
