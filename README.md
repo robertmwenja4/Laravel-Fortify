@@ -80,3 +80,5 @@ The Laravel framework is open-sourced software licensed under the [MIT license](
    - start the Command prompt and navigate to where the project is.
    - Run code . 
    - It opens the vscode editor
+   - Run php artisan serve to run the web server
+   - Open anothe cmd panel
