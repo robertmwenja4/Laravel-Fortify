@@ -6,7 +6,7 @@
     <div class="card">
       <form method="POST" action="{{ route('admin.passanger.update', $passanger->id) }}">
         @method('PATCH')
-        @include('passanger.includes.passangerform')
+        @include('passanger.includes.passeditform')
       </form>
     </div>
 @endsection
