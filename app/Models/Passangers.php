@@ -12,7 +12,8 @@ class Passangers extends Model
     use HasFactory, HasApiTokens, Notifiable;
 
     protected $attributes = [ 
-        'status' => 'Missing' 
+        'status' => 'Missing',
+        'phone_number' =>'max:10'
     ];
 
     protected $fillable = [

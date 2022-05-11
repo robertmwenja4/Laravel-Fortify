@@ -1,7 +1,7 @@
 @csrf
 <div class="mb-3">
     <label for="cardID">Bag Tag ID</label>
-    <input name="cardID" type="text" class="form-control @error('cardID') is-invalid @enderror" id="cardID" aria-describedby="cardID" value="{{ $user }} @isset($luggages) {{ $luggages->cardID }} @endisset">
+    <input name="cardID" type="text" class="form-control @error('cardID') is-invalid @enderror" id="cardID" aria-describedby="cardID" value="{{ $user }} @isset($luggages) {{ $luggages->cardID }} @endisset" readonly>
     @error('cardID')
         <span class="invalid-feedback" role="alert">
             {{ $message }}

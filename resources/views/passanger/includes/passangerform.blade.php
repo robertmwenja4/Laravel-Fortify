@@ -19,7 +19,14 @@
 </div>
 <div class="mb-3">
     <label for="fligh_no">Flight Number:</label>
-    <input name="fligh_no" type="text" class="form-control @error('fligh_no') is-invalid @enderror" id="fligh_no" aria-describedby="fligh_no" value="{{ old('fligh_no') }} @isset($passanger) {{ $passanger->fligh_no }} @endisset">
+    <select class="form-control" name="fligh_no">
+        @foreach ($flight as $f )
+        <option value="{{ $f->flight_no }}" {{ $f->flight_no  ? 'selected' : '' }}>{{ $f->flight_no }}</option>
+        @endforeach
+        	
+                
+    </select>
+    {{-- <input name="fligh_no" type="text" class="form-control @error('fligh_no') is-invalid @enderror" id="fligh_no" aria-describedby="fligh_no" value="{{ old('fligh_no') }} @isset($passanger) {{ $passanger->fligh_no }} @endisset"> --}}
     @error('fligh_no')
         <span class="invalid-feedback" role="alert">
             {{ $message }}

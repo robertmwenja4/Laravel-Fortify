@@ -34,17 +34,17 @@
             <td>{{ $bag->Terminal_at }}</td>
             <td>{{ $bag->status }}</td>
             <td>
-                @if ($bag->status == "Boarded" && $bag->Terminal_at == "CheckIn 2")
+                @if ($bag->status == "Boarded" && $bag->Terminal_at == "Sort Area 2")
                 <a class="btn btn-sm btn-success" href="#" role="button" >Ready</a>
-                @elseif ($bag->status == "Boarded" && $bag->Terminal_at != "CheckIn 2")
+                @elseif ($bag->status == "Boarded" && $bag->Terminal_at != "Sort Area 2")
                     <a class="btn btn-sm btn-danger" href="#" role="button" >Bag Missing</a>
-                @elseif ($bag->status == "Missing" && $bag->Terminal_at == "CheckIn 2")
+                @elseif ($bag->status == "Missing" && $bag->Terminal_at == "Sort Area 2")
                     <a class="btn btn-sm btn-primary" href="#" role="button" >Passanger Missing</a>
-                @elseif ($bag->status == "Missing" && $bag->Terminal_at != "CheckIn 2")
+                @elseif ($bag->status == "Missing" && $bag->Terminal_at != "Sort Area 2")
                     <a class="btn btn-sm btn-danger" href="#" role="button" >Both Missing</a>
-                @elseif ($bag->status == "Off-Loaded" && $bag->Terminal_at == "CheckIn 2")
+                @elseif ($bag->status == "Off-Loaded" && $bag->Terminal_at == "Sort Area 2")
                     <a class="btn btn-sm btn-info" href="#" role="button" >Passanger OFF</a>
-                @elseif ($bag->status == "Off-Loaded" && $bag->Terminal_at != "CheckIn 2")
+                @elseif ($bag->status == "Off-Loaded" && $bag->Terminal_at != "Sort Area 2")
                     <a class="btn btn-sm btn-secondary" href="#" role="button" >OFFLoaded</a>
                 @endif
             </td>

@@ -29,7 +29,9 @@ class PassangersController extends Controller
      */
     public function create()
     {
-        return view('passanger.addpassanger');
+        $flight = Flights::all();
+        
+        return view('passanger.addpassanger',['flight'=>$flight]);
     }
 
     /**

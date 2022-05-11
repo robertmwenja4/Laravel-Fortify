@@ -28,7 +28,7 @@ class StorePassangerData extends FormRequest
             'name' => 'required|string',
             'fligh_no' =>'required|string',
             'email' =>'required|string',
-            'phone_number'=>'required|numeric',
+            'phone_number'=>'required|digits:10',
             'flight_class'=>'required|string',
             'flight_origin'=>'required|string',
             'destination'=>'required|string',

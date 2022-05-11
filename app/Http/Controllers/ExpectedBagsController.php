@@ -47,7 +47,7 @@ class ExpectedBagsController extends Controller
         
         $flights = Flights::all();
         foreach($data1 as $d){
-            if($d->Terminal_at == 'CheckIn 2'){
+            if($d->Terminal_at == 'Sort Area 2'){
                 return view('flights.flightStatus',['data'=>$flights, 'num'=>$num, 'dd'=>$num,'data1'=>$data1,'total'=>$total->toArray(),'expectedBags'=>$expectedbags->toArray()]);
             }
         }

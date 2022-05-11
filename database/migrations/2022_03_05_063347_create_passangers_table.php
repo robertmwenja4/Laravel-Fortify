@@ -19,7 +19,7 @@ class CreatePassangersTable extends Migration
             $table->string('name');
             $table->string('fligh_no');
             $table->string('email');
-            $table->decimal('phone_number');
+            $table->decimal('phone_number', 10);
             $table->string('flight_class');
             $table->string('flight_origin');
             $table->string('destination');

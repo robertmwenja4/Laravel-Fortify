@@ -33,7 +33,7 @@
             <td>{{ $bag->Terminal_at }}</td>
             <td>{{ $bag->created_at }}</td>
             <td>
-                @if($bag->Terminal_at =='CheckIn 2')
+                @if($bag->Terminal_at =='Sort Area 2')
                 <a class="btn btn-sm btn-primary" href="#" role="button" >Loaded</a>
                 @else
                 <a class="btn btn-sm btn-danger" href="#" role="button" >Missing</a>
