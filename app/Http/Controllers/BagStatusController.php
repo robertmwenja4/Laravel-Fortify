@@ -23,7 +23,7 @@ class BagStatusController extends Controller
                         ->join('bag_statuses', 'bag_statuses.bag_tagID', '=','luggages.cardID')
                         ->get([
                             'passangers.pid','passangers.name','luggages.cardID','bag_statuses.Terminal_at','bag_statuses.created_at'
-                        ]);
+                        ])->unique();
         $AllBags = Bag_status::all();
         return view('bagstatus.bagstatus',['data'=>$data]);
     }
@@ -53,10 +53,10 @@ class BagStatusController extends Controller
         ]);
         $findID = DB::table('bag_statuses')->where('bag_tagID',$request->bag_tagID)->first();
         if($findID){
-            if($findID->Terminal_at == 'CheckIn 2'){
-                return "Bag Already at Final Checkin";
+            if($findID->Terminal_at == 'Sort Area 2'){
+                return "Bag Already at Final Sort Area";
             }
-            if($request->Terminal_at == 'CheckIn 2'){
+            if($request->Terminal_at == 'Sort Area 2'){
                 //Get PID in Luggage table
                 $getPID = DB::table('luggages')->where('cardID', $request->bag_tagID)->first();
                 if(!$getPID){
@@ -82,7 +82,7 @@ class BagStatusController extends Controller
             if($request->Terminal_at == $tag->Terminal_at){
                 return "Same Terminal";
             }
-            if($tag->Terminal_at != 'CheckIn 2' || $tag->Terminal_at != 'CheckIn 1'){
+            if($tag->Terminal_at != 'Sort Area 2' || $tag->Terminal_at != 'Sort Area 1'){
                 return Bag_status::create($request->all());
            }
            return $tag->bag_tagID;
