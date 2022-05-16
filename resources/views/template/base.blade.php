@@ -53,8 +53,10 @@
                               Passengers
                             </button>
                             <div class="dropdown-menu" style="background-color: #000" aria-labelledby="dropdownMenuButton">
+                              @cannot('is-boardonly')
                               <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">View Passengers</a>
                               <a class="dropdown-item" href="{{ route('admin.passanger.create') }}">Add New Passenger</a>
+                              @endcannot
                               @cannot('is-check')
                               <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Plane Boarding Checkin</a>
                               @endcannot
