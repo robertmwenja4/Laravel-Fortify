@@ -19,7 +19,7 @@
             <th scope="col">Passanger ID</th>
             <th scope="col">Name</th>
             <th scope="col">Bag ID</th>
-            <th scope="col">Terminal</th>
+            <th scope="col">Location</th>
             <th scope="col">Passanger Status</th>
             <th scope="col">Status</th>
           </tr>
