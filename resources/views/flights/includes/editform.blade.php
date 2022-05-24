@@ -44,7 +44,7 @@
         </span>
     @enderror
 </div>
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="no_bags">No. of Bags</label>
     <input name="no_bags" type="text" class="form-control @error('no_bags') is-invalid @enderror" id="no_bags" aria-describedby="no_bags" value="{{ old('no_bags') }} @isset($flight) {{ $flight->no_bags }} @endisset">
     @error('no_bags')
@@ -52,7 +52,7 @@
             {{ $message }}
         </span>
     @enderror
-</div>
+</div> --}}
 <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>

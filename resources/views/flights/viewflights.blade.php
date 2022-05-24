@@ -23,7 +23,6 @@
             <th scope="col">Origin</th>
             <th scope="col">Date</th>
             <th scope="col">Flight Status</th>
-            <th scope="col">No. of Bags</th>
             <th scope="col">Actions</th>
           </tr>
         </thead>
@@ -36,7 +35,7 @@
             <td>{{ $flight->origin }}</td>
             <td>{{ $flight->date }}</td>
             <td>{{ $flight->flight_status }}</td>
-            <td>{{ $flight->no_bags }}</td>
+            {{-- <td>{{ $flight->no_bags }}</td> --}}
             <td>
                 <a class="btn btn-sm btn-primary" href="{{ route('admin.flights.edit', $flight->id) }}" role="button" >Edit</a>
                 <button type="button" class="btn btn-sm btn-danger"

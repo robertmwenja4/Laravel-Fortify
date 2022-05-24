@@ -37,14 +37,20 @@
   </div>
 <div class="mb-3">
     <label for="flight_status">Flight Status</label>
-    <input name="flight_status" type="text" class="form-control @error('flight_status') is-invalid @enderror" id="flight_status" aria-describedby="flight_status" value="{{ old('flight_status') }} @isset($flight) {{ $flight->flight_status }} @endisset">
+    {{-- <input name="flight_status" type="text" class="form-control @error('flight_status') is-invalid @enderror" id="flight_status" aria-describedby="flight_status" value="{{ old('flight_status') }} @isset($flight) {{ $flight->flight_status }} @endisset"> --}}
+    @php ($names = ['On Time','delayed'])
+		<select class="form-control" name="flight_status">
+			<option value="On Time">On Time</option>
+            <option value="delayed">delayed</option>
+					
+		</select>
     @error('flight_status')
         <span class="invalid-feedback" role="alert">
             {{ $message }}
         </span>
     @enderror
 </div>
-<div class="mb-3">
+{{-- <div class="mb-3">
     <label for="no_bags">No. of Bags</label>
     <input name="no_bags" type="number" class="form-control @error('no_bags') is-invalid @enderror" id="no_bags" aria-describedby="no_bags" value="{{ old('no_bags') }} @isset($flight) {{ $flight->no_bags }} @endisset">
     @error('no_bags')
@@ -52,7 +58,7 @@
             {{ $message }}
         </span>
     @enderror
-</div>
+</div> --}}
 <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>

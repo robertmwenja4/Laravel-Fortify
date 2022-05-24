@@ -58,7 +58,7 @@
                               <a class="dropdown-item" href="{{ route('admin.passanger.create') }}">Add New Passenger</a>
                               @endcannot
                               @cannot('is-check')
-                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Plane Boarding Checkin</a>
+                              <a class="dropdown-item" href="{{ route('admin.passanger.index') }}">Checkin</a>
                               @endcannot
                               
                             </div>
