@@ -42,7 +42,7 @@
   </div>
 <div class="mb-3">
     <label for="phone_number">Phone Number</label>
-    <input name="phone_number" type="text" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" aria-describedby="phone_number" value="{{ old('phone_number') }} @isset($passanger) {{ $passanger->phone_number }} @endisset">
+    <input name="phone_number" type="number" class="form-control @error('phone_number') is-invalid @enderror" id="phone_number" aria-describedby="phone_number" value="{{ old('phone_number') }} @isset($passanger) {{ $passanger->phone_number }} @endisset">
     @error('phone_number')
         <span class="invalid-feedback" role="alert">
             {{ $message }}
