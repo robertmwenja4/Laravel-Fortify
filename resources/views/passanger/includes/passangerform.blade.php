@@ -22,9 +22,7 @@
     <select class="form-control" name="fligh_no">
         @foreach ($flight as $f )
         <option value="{{ $f->flight_no }}" {{ $f->flight_no  ? 'selected' : '' }}>{{ $f->flight_no }}</option>
-        @endforeach
-        	
-                
+        @endforeach         
     </select>
     {{-- <input name="fligh_no" type="text" class="form-control @error('fligh_no') is-invalid @enderror" id="fligh_no" aria-describedby="fligh_no" value="{{ old('fligh_no') }} @isset($passanger) {{ $passanger->fligh_no }} @endisset"> --}}
     @error('fligh_no')
@@ -53,7 +51,12 @@
 </div>
 <div class="mb-3">
     <label for="flight_class">Flight Class</label>
-    <input name="flight_class" type="text" class="form-control @error('flight_class') is-invalid @enderror" id="flight_class" aria-describedby="flight_class" value="{{ old('flight_class') }} @isset($passanger) {{ $passanger->flight_class }} @endisset">
+    {{-- <input name="flight_class" type="text" class="form-control @error('flight_class') is-invalid @enderror" id="flight_class" aria-describedby="flight_class" value="{{ old('flight_class') }} @isset($passanger) {{ $passanger->flight_class }} @endisset"> --}}
+    @php ($names = ['Economic','Commercial'])
+		<select class="form-control" name="flight_class">
+			<option value="Economic">Economic</option>
+            <option value="Commercial">Commercial</option>	
+		</select>
     @error('flight_class')
         <span class="invalid-feedback" role="alert">
             {{ $message }}
