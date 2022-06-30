@@ -130,7 +130,8 @@ class LuggagesController extends Controller
     {
         // Get cardId from API
         //Compare if it exist in the table Luggages
-        $user = DB::table('luggages')->where('cardID', $cardID)->first();
+        
+        $user = DB::table('luggages')->where('cardID', strtolower($cardID))->first();
         if($user != null){
             //Also if user exists return moble number
             $pass = DB::table('passangers')->where('pid', $user->pid)->first();
@@ -139,7 +140,7 @@ class LuggagesController extends Controller
 
             
             $users = 'Robert';
-            $request = ['cardID'=>$cardID];
+            $request = ['cardID'=>strtolower($cardID)];
             $card = BagID::create($request);
 
             return "Creating Bag........";

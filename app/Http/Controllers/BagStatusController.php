@@ -52,6 +52,9 @@ class BagStatusController extends Controller
             'Terminal_at'=> 'required',
         ]);
         $findID = DB::table('bag_statuses')->where('bag_tagID',$request->bag_tagID)->first();
+        if(!$findID->cardID){
+            return "The Bag Does not exist Yet!!";
+        }
         if($findID){
             if($findID->Terminal_at == 'Sort Area 2'){
                 return "Bag Already at Final Sort Area";

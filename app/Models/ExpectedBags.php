@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class ExpectedBags extends Model
 {
     use HasFactory;
+
+    protected $fillable = [
+        'pid',
+        'flight_no',
+        'tag_no'
+    ];
 }

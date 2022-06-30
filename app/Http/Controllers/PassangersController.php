@@ -30,8 +30,11 @@ class PassangersController extends Controller
     public function create()
     {
         $flight = Flights::all();
+        $flightName = DB::table('flights')
+                        ->groupBy('flight_no')
+                        ->get();
         
-        return view('passanger.addpassanger',['flight'=>$flight]);
+        return view('passanger.addpassanger',['flight'=>$flightName]);
     }
 
     /**
