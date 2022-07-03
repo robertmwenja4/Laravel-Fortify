@@ -19,10 +19,14 @@
 </div>
 <div class="mb-3">
     <label for="fligh_no">Flight Number:</label>
-    <select class="form-control dynamic" name="fligh_no" id="fligh_no" data-dependent="origin">
+    <select class="form-control dynamic" name="flight_no" id="flight_no" data-dependent="origin">
         {{-- @foreach ($flight as $f )
         <option value="{{ $f->flight_no }}" {{ $f->flight_no  ? 'selected' : '' }}>{{ $f->flight_no }}</option>
         @endforeach  --}}        
+        <option value="">Select Flight</option>
+        @foreach ($flight as $f )
+            <option value="{{ $f->flight_no }}">{{ $f->flight_no }}</option>
+        @endforeach
     </select>
     {{-- <input name="fligh_no" type="text" class="form-control @error('fligh_no') is-invalid @enderror" id="fligh_no" aria-describedby="fligh_no" value="{{ old('fligh_no') }} @isset($passanger) {{ $passanger->fligh_no }} @endisset"> --}}
     @error('fligh_no')
@@ -65,7 +69,10 @@
 </div>
 <div class="mb-3">
     <label for="flight_origin">Flight Origin</label>
-    <input name="flight_origin" type="text" class="form-control @error('flight_origin') is-invalid @enderror" id="flight_origin" aria-describedby="flight_origin" value="{{ old('flight_origin') }} @isset($passanger) {{ $passanger->flight_origin }} @endisset">
+    {{-- <input name="flight_origin" type="text" class="form-control @error('flight_origin') is-invalid @enderror" id="flight_origin" aria-describedby="flight_origin" value="{{ old('flight_origin') }} @isset($passanger) {{ $passanger->flight_origin }} @endisset"> --}}
+    <select name="flight_origin" class="form-control dynamic" id="flight_origin" data-dependent="destination">
+        <option value="">Select Origin</option>
+    </select>
     @error('flight_origin')
         <span class="invalid-feedback" role="alert">
             {{ $message }}
@@ -75,7 +82,10 @@
 
 <div class="mb-3">
     <label for="destination">Flight Destination</label>
-    <input name="destination" type="text" class="form-control @error('destination') is-invalid @enderror" id="destination" aria-describedby="destination" value="{{ old('destination') }} @isset($passanger) {{ $passanger->destination }} @endisset">
+    {{-- <input name="destination" type="text" class="form-control @error('destination') is-invalid @enderror" id="destination" aria-describedby="destination" value="{{ old('destination') }} @isset($passanger) {{ $passanger->destination }} @endisset"> --}}
+    <select name="destination" class="form-control" id="destination">
+        <option value="">Select Destination</option>
+    </select>
     @error('destination')
         <span class="invalid-feedback" role="alert">
             {{ $message }}
@@ -96,21 +106,6 @@
 		</select>
 	</div>
 </div>
-{{-- <div class="mb-3" style="display:none">
-	<label class="col-md-3 control-label">Missing</label>
-    <div class="col-md-9">
-    <input type="text" name="status[]" value="{{ $names[0] }}" class="form-control" placeholder="Missing" > </div>
-</div>
-<div class="mb-3" style="display:none">
-	<label class="col-md-3 control-label">Boarded</label>
-    <div class="col-md-9">
-    <input type="text" name="status[]" value="{{ $names[1] }}" class="form-control" placeholder="Boarded" > </div>
-</div>
-<div class="mb-3" style="display:none">
-	<label class="col-md-3 control-label">Offloaded</label>
-    <div class="col-md-9">
-    <input type="text" name="status[]" value="{{ $names[2] }}" class="form-control" placeholder="Offloaded" > </div>
-</div> --}}
 <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>
