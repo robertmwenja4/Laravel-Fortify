@@ -154,9 +154,8 @@
                 @yield('content')
             </main>
         </div>
-    </body>
-    {{ csrf_field() }}
-    <script>
+        {{ csrf_field() }}
+    <script type="text/javascript">
       $(document).ready(function () {
           $('.dynamic').change(function () {
               if ($(this).val() != '') {
@@ -181,4 +180,5 @@
           });
       });
   </script>
+    </body>
 </html>

@@ -106,6 +106,31 @@
 		</select>
 	</div>
 </div>
+<script type="text/javascript">
+      $(document).ready(function () {
+          $('.dynamic').change(function () {
+              if ($(this).val() != '') {
+                  var select = $(this).attr("id");
+                  var value = $(this).val();
+                  var dependent = $(this).data('dependent');
+                  var _token = $('input[name="_token"]').val();
+                  $.ajax({
+                      url: "{{ route('passanger.fetch') }}",
+                      method: "POST",
+                      data:{
+                          select:select,
+                          value: value,
+                          _token:_token,
+                          dependent: dependent
+                      },
+                      success: function(result){
+                          $('#'+dependent).html(result);
+                      }
+                  });
+              }
+          });
+      });
+  </script>
 <div class="mb-3">
     <button type="submit" class="btn btn-primary">Submit</button>
 </div>

@@ -5,6 +5,8 @@
     <div class="card">
         <form method="POST" action="{{ route('admin.passanger.store') }}">
             @include('passanger.includes.passangerform')
+            {{ csrf_field() }}
+    
             
         </form>
     </div>

@@ -50,7 +50,7 @@ class PassangersController extends Controller
         foreach ($data as $row) {
             $output .= '<option value="'.$row->$dependent.'">'.$row->$dependent.'</option>';
         }
-        echo $output;
+        return $output;
     }
 
     /**
