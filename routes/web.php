@@ -36,6 +36,7 @@ Route::get('/product/search/', [LuggagesController::class, 'search'])->name('lug
 
 Route::get('/searchUser', [UserController::class, 'search']);
 Route::get('/searchPassanger', [PassangersController::class, 'search']);
+Route::get('/searchf', [PassangersController::class, 'look']);
 Route::get('/searchflight', [FlightsController::class, 'search']);
 Route::get('/searchBag', [LuggagesController::class, 'lookfor']);
 Route::post('fetch', [PassangersController::class, 'fetch'])->name('passanger.fetch');

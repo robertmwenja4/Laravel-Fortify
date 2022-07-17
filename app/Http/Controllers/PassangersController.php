@@ -18,7 +18,7 @@ class PassangersController extends Controller
      */
     public function index()
     {
-        $passangers = Passangers::all();
+        $passangers = Passangers::all(); 
         return view('passanger.viewpassanger',['passangers'=>$passangers]);
     }
 
@@ -134,6 +134,11 @@ class PassangersController extends Controller
         $pid = $_GET['passSearch'];
         $passanger = Passangers::where('pid','LIKE', '%'.$pid.'%')->get();
         return view('passanger.searchpassanger',['passangers'=>$passanger]);
+    }
+    public function look(){
+        $flight = $_GET['passflight'];
+        $passangers = Passangers::where('fligh_no','LIKE', '%'.$flight.'%')->get();
+        return view('passanger.searchpassanger',['passangers'=>$passangers]);
     }
     
 }

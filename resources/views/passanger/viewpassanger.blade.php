@@ -15,6 +15,12 @@
     <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
   </form>
 </div>
+<div>
+  <form class="form-inline" style="margin-bottom: 1rem" type="get" action="{{ url('/searchf') }}">
+    <input class="form-control mr-sm-2" name="passflight" type="search" placeholder="Search flight ID" aria-label="Search">
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+  </form>
+</div>
 <div class="card">
     <table class="table">
         <thead>
