@@ -37,6 +37,8 @@
                     @if (Route::has('login'))
                         <div>
                             @auth
+                            <img src="{{ Auth::user()->avatar }}" alt="{{ Auth::user()->name }}"
+                                        style="border: 1px solid #cccccc; border-radius: 5px; width: 39px; height: auto; float: left; margin-left: 7px">
                                 <a href="{{ url('/home') }}">Home</a>
                                 <a href="{{ route('logout') }}" onclick="event.preventDefault();
                                 document.getElementById('logout-form').submit();">Logout</a>
